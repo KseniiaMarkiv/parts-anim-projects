@@ -1,0 +1,215 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: whitesmoke;
+  font: 100% "Verdana", sans-serif;
+  padding: 15px;
+}
+body section {
+  display: grid;
+  place-content: center;
+  width: 100vw;
+  min-height: 100vh;
+}
+body section div.row-title {
+  position: relative;
+  width: 100vw;
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+body section div.row-title p span {
+  position: relative;
+  color: #F7CAC9;
+  font-family: "wide font";
+  font-size: 35px;
+  font-weight: 600;
+}
+body section div.row-title p span.title {
+  position: relative;
+  top: -2px;
+  font-size: 20px;
+  color: #797979;
+  font: 100% "Verdana", sans-serif;
+  font-weight: 600;
+}
+body section div.cards {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 30px;
+  margin: 50px;
+}
+body section div.cards div.card {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  padding: 40px;
+  border-radius: 3px;
+  transition: 0.5s;
+}
+body section div.cards div.card div.symbol {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 10px;
+}
+body section div.cards div.card div.symbol div.pulse {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: #F7CAC9;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 50px;
+  color: #343148;
+}
+body section div.cards div.card div.symbol div.pulse::before,
+body section div.cards div.card div.symbol div.pulse::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #F7CAC9;
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.7;
+}
+body section div.cards div.card div.symbol div.pulse::before {
+  -webkit-animation: pulse 2s ease-out infinite;
+          animation: pulse 2s ease-out infinite;
+}
+body section div.cards div.card div.symbol div.pulse::after {
+  -webkit-animation: pulse 2s 1s ease-out infinite;
+          animation: pulse 2s 1s ease-out infinite;
+}
+body section div.cards div.card div.text {
+  position: relative;
+}
+body section div.cards div.card div.text h3 {
+  color: #343148;
+  margin-bottom: 15px;
+}
+body section div.cards div.card div.text p {
+  color: #797979;
+  line-height: 1.7;
+}
+body section div.cards div.card:hover {
+  background-color: #343148;
+  transition: 0.5s;
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  padding: 40px;
+  border-radius: 3px;
+  transition: 0.5s;
+}
+body section div.cards div.card:hover div.symbol {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 10px;
+}
+body section div.cards div.card:hover div.symbol div.pulse {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: #F7CAC9;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 50px;
+  color: #343148;
+}
+body section div.cards div.card:hover div.symbol div.pulse i {
+  z-index: 2;
+}
+body section div.cards div.card:hover div.symbol div.pulse::before,
+body section div.cards div.card:hover div.symbol div.pulse::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #F7CAC9;
+  border-radius: 50%;
+  z-index: 1;
+  opacity: 0.7;
+}
+body section div.cards div.card:hover div.symbol div.pulse::before {
+  -webkit-animation: pulse 2s ease-out infinite;
+          animation: pulse 2s ease-out infinite;
+}
+body section div.cards div.card:hover div.symbol div.pulse::after {
+  -webkit-animation: pulse 2s 1s ease-out infinite;
+          animation: pulse 2s 1s ease-out infinite;
+}
+body section div.cards div.card:hover div.text {
+  position: relative;
+}
+body section div.cards div.card:hover div.text h3 {
+  color: #F7CAC9;
+  margin-bottom: 15px;
+}
+body section div.cards div.card:hover div.text p {
+  color: whitesmoke;
+  line-height: 1.7;
+}
+
+@-webkit-keyframes pulse {
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+@media only screen and (max-width: 992px) {
+  body section div.cards {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 15px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  body section div.cards {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto;
+    gap: 30px;
+    margin: 15px;
+  }
+  body section div.cards div.card {
+    padding: 40px 30px;
+  }
+  body section div.cards div.card:hover {
+    padding: 40px 30px;
+  }
+}/*# sourceMappingURL=style.css.map */

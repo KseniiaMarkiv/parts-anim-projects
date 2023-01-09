@@ -1,0 +1,222 @@
+@import '_variables.scss';
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: whitesmoke;
+    font: 100% $font-common;
+    padding: 15px;
+    section {
+        display: grid;
+        place-content: center;
+        width: 100vw;
+        min-height: 100vh;
+        div.row-title {
+            position: relative;
+            width: 100vw;
+            min-height: 50px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            p {
+                span {
+                    position: relative;
+                    color: #F7CAC9;
+                    font-family: "wide font";
+                    font-size: 35px;
+                    font-weight: 600;
+                }
+                span.title {
+                    position: relative;
+                    top: -2px;
+                    font-size: 20px;
+                    color: #797979;
+                    font: 100% $font-common;
+                    font-weight: 600;
+                }
+            }
+        }
+        div.cards {
+            position: relative;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 30px;
+            margin: 50px;
+            div.card {
+                position: relative;
+                width: 100%;
+                height: auto;
+                display: grid;
+                place-items: center;
+                text-align: center;
+                border: 1px solid rgba(0, 0, 0, .07);
+                padding: 40px;
+                border-radius: 3px;
+                transition: 0.5s;
+                div.symbol {
+                    position: relative;
+                    width: 100%;
+                    height: 100px;
+                    display: grid;
+                    place-items: center;
+                    margin-bottom: 10px;
+                    div.pulse {
+                        position: absolute;
+                        width: 80px;
+                        height: 80px;
+                        background: #F7CAC9;
+                        border-radius: 50%;
+                        display: grid;
+                        place-items: center;
+                        font-size: 50px;
+                        color: #343148;
+                    }
+                    div.pulse::before,
+                    div.pulse::after {
+                        content: "";
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        background-color: #F7CAC9;
+                        border-radius: 50%;
+                        z-index: -1;
+                        opacity: 0.7;
+                    }
+                    div.pulse::before {
+                        animation: pulse 2s ease-out infinite;
+                    }
+                    div.pulse::after {
+                        animation: pulse 2s 1s ease-out infinite;
+                    }
+                }
+                div.text {
+                    position: relative;
+                    h3 {
+                        color: #343148;
+                        margin-bottom: 15px;
+                    }
+                    p {
+                        color: #797979;
+                        line-height: 1.7;
+                    }
+                }
+            }
+            div.card:hover {
+                background-color: #343148;
+                transition: 0.5s;
+                position: relative;
+                width: 100%;
+                height: auto;
+                display: grid;
+                place-items: center;
+                text-align: center;
+                border: 1px solid rgba(0, 0, 0, .07);
+                padding: 40px;
+                border-radius: 3px;
+                transition: 0.5s;
+                div.symbol {
+                    position: relative;
+                    width: 100%;
+                    height: 100px;
+                    display: grid;
+                    place-items: center;
+                    margin-bottom: 10px;
+                    div.pulse {
+                        position: absolute;
+                        width: 80px;
+                        height: 80px;
+                        background: #F7CAC9;
+                        border-radius: 50%;
+                        display: grid;
+                        place-items: center;
+                        font-size: 50px;
+                        color: #343148;
+                        i {
+                            z-index: 2;
+                        }
+                    }
+                    div.pulse::before,
+                    div.pulse::after {
+                        content: "";
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        background-color: #F7CAC9;
+                        border-radius: 50%;
+                        z-index: 1;
+                        opacity: 0.7;
+                    }
+                    div.pulse::before {
+                        animation: pulse 2s ease-out infinite;
+                    }
+                    div.pulse::after {
+                        animation: pulse 2s 1s ease-out infinite;
+                    }
+                }
+                div.text {
+                    position: relative;
+                    h3 {
+                        color: #F7CAC9;
+                        margin-bottom: 15px;
+                    }
+                    p {
+                        color: whitesmoke;
+                        line-height: 1.7;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes pulse {
+    100% {
+        @include transform(scale(1.5));
+        opacity: 0;
+    }
+}
+
+// MEDIA QUERY
+@include devices(largeDevices) {
+    body {
+        section {
+            div.cards {
+                position: relative;
+                display: grid;
+                grid-template-columns: auto auto;
+                gap: 15px;
+            }
+        }
+    }
+}
+
+@include devices(mediumDevices) {
+    body {
+        section {
+            div.cards {
+                position: relative;
+                display: grid;
+                grid-template-columns: auto;
+                gap: 30px;
+                margin: 15px;
+                div.card {
+                    padding: 40px 30px;
+                }
+                div.card:hover {
+                    padding: 40px 30px;
+                }
+            }
+        }
+    }
+}
+
+@include devices(smallDevices) {}
+
+@include devices(xSmallDevices) {}

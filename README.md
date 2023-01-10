@@ -1,5 +1,5 @@
 # parts-anim-projects
- <em>In this place I will collect of made my own varied part from websites</em>
+ <em>In this place, I will collect of made my own varied animated part from websites</em>
 
  <br/>
  <br/>

@@ -1,57 +1,162 @@
-*,
-*::before,
-*::after {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: whitesmoke;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: wrap;
-    width: 100vw;
-    min-height: 100vh;
-    div.pulse {
-        position: absolute;
-        margin: 20% 0 0 0;
-        // left: 0;
-        // top: 0;
-        // right: 0;
-        // bottom: 0;
-        width: 150px;
-        height: 150px;
-        background: linear-gradient( #FFFF00, #00FF80);
-        border-radius: 50%;
-        display: grid;
-        place-items: center;
-        font-size: 84px;
-        color: white;
+    @import url(_variables.scss);
+     :root {
+        --ion-color-favorite: #ff2781;
     }
-    div.pulse::before,
-    div.pulse::after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: #00FF80;
-        border-radius: 50%;
-        z-index: -1;
-        opacity: 0.7;
+    
+    .ion-color-favorite {
+        --ion-color-base: var(--ion-color-favorite);
     }
-    div.pulse::before {
-        animation: pulse 2s ease-out infinite;
+    
+    *,
+    *::before,
+    *::after {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
     }
-    div.pulse::after {
-        animation: pulse 2s 1s ease-out infinite;
+    
+    body {
+        background-color: whitesmoke;
+        width: 100vw;
+        min-height: 100vh;
+        div.container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            place-items: center;
+            width: 100vw;
+            height: 100vh;
+            div.container-pulse {
+                width: 100%;
+                height: 400px;
+                display: grid;
+                place-items: center;
+                position: relative;
+                top: -3rem;
+                div.pulse {
+                    position: absolute;
+                    width: 150px;
+                    height: 150px;
+                    background: linear-gradient( #FFFF00, #00FF80);
+                    border-radius: 50%;
+                    display: grid;
+                    place-items: center;
+                    font-size: 84px;
+                    color: white;
+                }
+                div.pulse::before,
+                div.pulse::after {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background-color: #00FF80;
+                    border-radius: 50%;
+                    z-index: -1;
+                    opacity: 0.7;
+                }
+                div.pulse::before {
+                    animation: pulse 2s ease-out infinite;
+                }
+                div.pulse::after {
+                    animation: pulse 2s 1s ease-out infinite;
+                }
+            }
+            div.own-color {
+                position: relative;
+                top: -5rem;
+                font-size: 84px;
+                width: 100%;
+                height: 400px;
+                display: grid;
+                place-items: center;
+            }
+            div.container-shake {
+                position: relative;
+                width: 100%;
+                height: 400px;
+                display: grid;
+                place-items: center;
+                div.shake {
+                    position: absolute;
+                    text-align: center;
+                    background: linear-gradient(#FFFF00, #00FF80);
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    top: 5rem;
+                    i::before,
+                    i::after {
+                        display: initial;
+                        font-size: 84px;
+                    }
+                }
+                div.shake:hover {
+                    animation: shake 1s infinite;
+                }
+                div.text-gradient {
+                    background: linear-gradient(#FFFF00, #00FF80);
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    p {
+                        font-size: 2rem;
+                        font-weight: 700;
+                        margin-top: 20px;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
     }
-}
-
-@keyframes pulse {
-    100% {
-        transform: scale(1.2);
-        opacity: 0;
+    
+    @keyframes shake {
+        0% {
+            transform: translate(1px, 1px) rotate(0deg);
+        }
+        10% {
+            transform: translate(-1px, -2px) rotate(-1deg);
+        }
+        20% {
+            transform: translate(-3px, 0px) rotate(1deg);
+        }
+        30% {
+            transform: translate(3px, 2px) rotate(0deg);
+        }
+        40% {
+            transform: translate(1px, -1px) rotate(1deg);
+        }
+        50% {
+            transform: translate(-1px, 2px) rotate(-1deg);
+        }
+        60% {
+            transform: translate(-3px, 1px) rotate(0deg);
+        }
+        70% {
+            transform: translate(3px, 1px) rotate(-1deg);
+        }
+        80% {
+            transform: translate(-1px, -1px) rotate(1deg);
+        }
+        90% {
+            transform: translate(1px, 2px) rotate(0deg);
+        }
+        100% {
+            transform: translate(1px, -2px) rotate(-1deg);
+        }
     }
-}
+    
+    @keyframes pulse {
+        100% {
+            transform: scale(1.2);
+            opacity: 0;
+        }
+    }
+    
+    $breakpoint-tablet: 900px;
+    @media (max-width: $breakpoint-tablet) {
+        body {
+            div.container {
+                display: grid;
+                grid-template-columns: auto;
+                place-items: center;
+            }
+        }
+    }

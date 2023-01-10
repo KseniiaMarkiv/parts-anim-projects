@@ -6,16 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bell</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-    <div class="pulse">
-        <ion-icon name="notifications-outline"></ion-icon>
+    <div class="container">
+        <div class="container-pulse">
+            <div class="pulse">
+                <ion-icon name="notifications-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="own-color">
+            <ion-icon name="notifications-outline" color="favorite"></ion-icon>
+        </div>
+        <div class="container-shake">
+            <div class="shake">
+                <i class="fa-regular fa-bell"></i>
+            </div>
+            <div class="text-gradient">
+                <p>Hover out to a bell</p>
+            </div>
+        </div>
     </div>
-
     <script async="async" type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script async="async" nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

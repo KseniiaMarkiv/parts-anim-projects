@@ -1,3 +1,12 @@
+@import url(_variables.scss);
+:root {
+  --ion-color-favorite: #ff2781;
+}
+
+.ion-color-favorite {
+  --ion-color-base: var(--ion-color-favorite);
+}
+
 *,
 *::before,
 *::after {
@@ -8,16 +17,26 @@
 
 body {
   background-color: whitesmoke;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-wrap: wrap;
   width: 100vw;
   min-height: 100vh;
 }
-body div.pulse {
+body div.container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+body div.container div.container-pulse {
+  width: 100%;
+  height: 400px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  top: -3rem;
+}
+body div.container div.container-pulse div.pulse {
   position: absolute;
-  margin: 20% 0 0 0;
   width: 150px;
   height: 150px;
   background: linear-gradient(#FFFF00, #00FF80);
@@ -27,8 +46,8 @@ body div.pulse {
   font-size: 84px;
   color: white;
 }
-body div.pulse::before,
-body div.pulse::after {
+body div.container div.container-pulse div.pulse::before,
+body div.container div.container-pulse div.pulse::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -38,25 +57,148 @@ body div.pulse::after {
   z-index: -1;
   opacity: 0.7;
 }
-body div.pulse::before {
+body div.container div.container-pulse div.pulse::before {
   -webkit-animation: pulse 2s ease-out infinite;
           animation: pulse 2s ease-out infinite;
 }
-body div.pulse::after {
+body div.container div.container-pulse div.pulse::after {
   -webkit-animation: pulse 2s 1s ease-out infinite;
           animation: pulse 2s 1s ease-out infinite;
 }
+body div.container div.own-color {
+  position: relative;
+  top: -5rem;
+  font-size: 84px;
+  width: 100%;
+  height: 400px;
+  display: grid;
+  place-items: center;
+}
+body div.container div.container-shake {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  display: grid;
+  place-items: center;
+}
+body div.container div.container-shake div.shake {
+  position: absolute;
+  text-align: center;
+  background: linear-gradient(#FFFF00, #00FF80);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  top: 5rem;
+}
+body div.container div.container-shake div.shake i::before,
+body div.container div.container-shake div.shake i::after {
+  display: initial;
+  font-size: 84px;
+}
+body div.container div.container-shake div.shake:hover {
+  -webkit-animation: shake 1s infinite;
+          animation: shake 1s infinite;
+}
+body div.container div.container-shake div.text-gradient {
+  background: linear-gradient(#FFFF00, #00FF80);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+body div.container div.container-shake div.text-gradient p {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
 
+@-webkit-keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
 @-webkit-keyframes pulse {
   100% {
     transform: scale(1.2);
     opacity: 0;
   }
 }
-
 @keyframes pulse {
   100% {
     transform: scale(1.2);
     opacity: 0;
+  }
+}
+@media (max-width: 900px) {
+  body div.container {
+    display: grid;
+    grid-template-columns: auto;
+    place-items: center;
   }
 }/*# sourceMappingURL=style.css.map */

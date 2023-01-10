@@ -1,0 +1,9 @@
+$font-common: 'Verdana',
+sans-serif;
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -moz-transform: $property;
+    -ms-transform: $property;
+    transform: $property;
+    -o-transform: $property;
+}

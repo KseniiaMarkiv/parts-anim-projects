@@ -11,16 +11,89 @@ section {
   align-items: center;
   min-height: 100vh;
   background: #250821;
+  overflow: hidden;
 }
-section .blob {
+section .blob-common {
+  width: 100vw;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: auto;
+  padding: 0 20px;
+}
+section .blob-common .blob1,
+section .blob-common .blob2,
+section .blob-common .blob3,
+section .blob-common .blob4 {
+  width: 100%;
+  height: 400px;
+}
+section .blob-common .blob1 {
+  position: relative;
+}
+section .blob-common .blob1 img {
   position: absolute;
-  width: 500px;
-  height: 500px;
+  right: 40%;
+  top: 6rem;
+  right: 4rem;
+  z-index: 9;
+  filter: blur(1px);
+  transform: rotate(0.1turn);
 }
-section .blob svg {
-  width: 500px;
-  height: auto;
+section .blob-common .blob1 .img2 {
+  filter: blur(20px);
+  z-index: 10;
 }
-section .blob:nth-child(2) {
-  filter: blur(30px);
+section .blob-common .blob2 {
+  position: relative;
+}
+section .blob-common .blob2 img {
+  position: absolute;
+  right: 40%;
+  z-index: 9;
+  filter: blur(1px);
+}
+section .blob-common .blob2 .img2-2 {
+  filter: blur(20px);
+  z-index: 10;
+}
+section .blob-common .blob3 {
+  position: relative;
+}
+section .blob-common .blob3 img {
+  position: absolute;
+  right: 40%;
+  left: 4rem;
+  transform: rotate(-0.4turn);
+  z-index: 9;
+  filter: blur(1px);
+}
+section .blob-common .blob3 .img2-3 {
+  filter: blur(20px);
+  z-index: 10;
+}
+section .blob-common .blob4 {
+  position: relative;
+}
+section .blob-common .blob4 img {
+  position: absolute;
+  right: 30%;
+  top: -12rem;
+  z-index: 9;
+  filter: blur(1px);
+}
+section .blob-common .blob4 .img2-4 {
+  filter: blur(20px);
+  z-index: 10;
+}
+
+@-webkit-keyframes spinning {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinning {
+  to {
+    transform: rotate(360deg);
+  }
 }/*# sourceMappingURL=style.css.map */

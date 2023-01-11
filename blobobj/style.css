@@ -22,5 +22,5 @@ section .blob svg {
   height: auto;
 }
 section .blob:nth-child(2) {
-  filter: blur(50px);
+  filter: blur(30px);
 }/*# sourceMappingURL=style.css.map */
